@@ -1,9 +1,10 @@
 # Keep_Awake_Windows
 Keep Your PC Awake All the Time
 #
+
 ## (1) Simple PowerShell script to keep a Windows PC awake
-#
- step 1. Step 1: Create a PowerShell script
+
+Step 1: Create a PowerShell script
 
 Copy and paste the below code and Save this as keepawakewin.ps1
 
@@ -32,7 +33,7 @@ powershell.exe -ExecutionPolicy Bypass -File keepawakewin.ps1
 Note: You need to create a bat file same folder as your PowerShell script file (Else provide the corre.ps1
 
 ### Note: It is recommanded to use schedule job instead run script into infinite loop
-#
+
 ### Useful references:
 https://superuser.com/questions/992511/emulate-a-keyboard-button-via-the-command-line
 
@@ -44,11 +45,14 @@ https://learn-powershell.net/2013/02/08/powershell-and-events-object-events/
 #
 #
 ## (2) A very simple PowerShell script to keep a Windows PC
+Step 1: Create a PowerShell script (Copy and paste the below code and Save this as keepawake.ps1)
+
 ```
 $wsh = New-Object -ComObject WScript.Shell
 $wsh.SendKeys('+{F15}
 ```
-### Note: It is recommanded to use schedule job instead run script into infinite looploop
+
+Step 2: Create a job in Windows Task Schedular and schedule it to run every 2 or 4 mins 
 #
 #
 ## (3) Effective Ways Keep Your PC Awake All the Time

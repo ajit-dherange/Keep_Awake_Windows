@@ -55,7 +55,7 @@ $wsh.SendKeys('+{F15}
 Step 2: Create a job in Windows Task Schedular and schedule it to run every 2 or 4 mins 
 #
 #
-## (3) Effective Ways Keep Your PC Awake All the Time
+## (3) Effective Way to Keep Your PC Awake All the Time
 
 Step 1: Create a PowerShell script
 

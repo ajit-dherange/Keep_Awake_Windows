@@ -3,11 +3,35 @@ Keep Your PC Awake All the Time
 #
 ## (1) Simple PowerShell script to keep a Windows PC awake
 #
- step 1. Download file keepawakewin.ps1 in your PC / Laptop
+ step 1. Step 1: Create a PowerShell script
 
- step 2 Open powershell and run the  script keepawakewin.ps1
-#
-### It is recommanded to use schedule job to run script into infinite loop
+Copy and paste the below code and Save this as keepawakewin.ps1
+
+You can use Notepad or Notepad++ to copy, paste and save this
+
+ ```
+$wsh = New-Object -ComObject WScript.S
+while (1) {
+  # Send Shift+F15 - this is the least intrusive key combination I can think of and is also used as default by:
+  # http://www.zhornsoftware.co.uk/caffeine/
+  # Unfortunately the above triggers a malware alert on Sophos so I needed to find a native solution - hence this script...
+  $wsh.SendKeys('+{F15}')
+  Start-Sleep -seconds 119
+}
+```
+ 
+Step 2: Create a .bat file with Name awake.bat
+
+Copy and paste the below code.
+
+```
+@echo off
+powershell.exe -ExecutionPolicy Bypass -File keepawakewin.ps1
+```
+
+Note: You need to create a bat file same folder as your PowerShell script file (Else provide the corre.ps1
+
+### Note: It is recommanded to use schedule job instead run script into infinite loop
 #
 ### Useful references:
 https://superuser.com/questions/992511/emulate-a-keyboard-button-via-the-command-line
@@ -24,7 +48,7 @@ https://learn-powershell.net/2013/02/08/powershell-and-events-object-events/
 $wsh = New-Object -ComObject WScript.Shell
 $wsh.SendKeys('+{F15}
 ```
-### It is recommanded to use schedule job to run script into infinite loop
+### Note: It is recommanded to use schedule job instead run script into infinite looploop
 #
 #
 ## (3) Effective Ways Keep Your PC Awake All the Time
@@ -91,3 +115,4 @@ powershell.exe -ExecutionPolicy Bypass -File awakealways.ps1
 
 Note: You need to create a bat file same folder as your PowerShell script file (Else provide the correct path)
 
+### Note: It is recommanded to use schedule job instead run script into infinite loop
